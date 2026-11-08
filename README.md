@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Where Have I Been
 
-## Getting Started
+Dit project is een website gebouwd met Next.js. Volg de stappen hieronder om het project op een Windows-computer lokaal te starten, naar GitHub te pushen en online te zetten via Vercel.
 
-First, run the development server:
+## 1. Installeer Node.js
 
-```bash
+Node.js bevat ook npm, waarmee de benodigde projectpakketten worden geïnstalleerd.
+
+1. Ga naar [nodejs.org/en/download](https://nodejs.org/en/download) en download de **LTS**-versie voor Windows.
+2. Open het gedownloade installatiebestand en volg de installatiestappen. De standaardinstellingen zijn geschikt.
+3. Sluit een eventueel geopende PowerShell of terminal en open die opnieuw.
+4. Controleer de installatie met:
+
+	```powershell
+	node -v
+	npm -v
+	```
+
+Beide commando's tonen een versienummer.
+
+## 2. Open PowerShell in de projectmap
+
+1. Open de projectmap in Windows Verkenner.
+2. Klik in de balk van het adres en type: `Powershell` 
+3. Check dat de Powershell opent in `C:\Users\Olivia\where-have-i-been>` 
+
+Je kunt de map ook openen in [Visual Studio Code](https://code.visualstudio.com/) en daar **Terminal > Nieuwe terminal** kiezen.
+
+## 3. Start de website lokaal
+
+Voer in PowerShell of de terminal van Visual Studio Code deze opdrachten uit:
+
+```powershell
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+`npm install` installeert de projectpakketten. Open daarna [http://localhost:3000](http://localhost:3000) in je browser. De website wordt bijgewerkt wanneer je bestanden aanpast.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Stop de lokale server met **Ctrl+C** in de terminal.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Als je al eerder een install gedaan hebt dan kan je starten met:
+```powershell
+npm run dev
+``` 
 
-## Learn More
+## 4. Push het project naar GitHub via Visual Studio Code
 
-To learn more about Next.js, take a look at the following resources:
+Je hebt een GitHub-account en Git nodig. Installeer Git voor Windows via [git-scm.com/download/win](https://git-scm.com/download/win) en open Visual Studio Code daarna opnieuw.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Eerste keer publiceren
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Open de projectmap in Visual Studio Code.
+2. Klik links op **Broncodebeheer** (het vertakkingspictogram).
+3. Kies **Repository initialiseren** als Visual Studio Code daarom vraagt.
+4. Stage de bestanden die je wilt opslaan met het **+**-pictogram naast een bestand, of stage alle bestanden.
+5. Typ bovenaan een commitbericht, bijvoorbeeld `Eerste versie`, en klik op **Commit**.
+6. Klik op **Publish Branch** of **Publish to GitHub**.
+7. Meld je aan bij GitHub als daarom wordt gevraagd. Kies of de repository openbaar of privé moet zijn en bevestig het publiceren.
 
-## Deploy on Vercel
+Visual Studio Code maakt de GitHub-repository aan en pusht de commit. De repository is daarna te vinden op `https://github.com/<gebruikersnaam>/<repositorynaam>`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Volgende wijzigingen pushen
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Sla je wijzigingen op en open **Broncodebeheer**.
+2. Stage de bestanden die je wilt meesturen met **+**.
+3. Typ een commitbericht en klik op **Commit**.
+4. Klik op **Synchronisatie wijzigen** of **Push** om de commit naar GitHub te sturen. Bevestig zo nodig dat Visual Studio Code de wijzigingen mag synchroniseren.
+
+De commit staat nu op GitHub. Als de repository nog niet aan een GitHub-account is gekoppeld, gebruik dan **Publish Branch** om dat alsnog te doen.
+
+## 5. Deploy de website via Vercel
+
+1. Push eerst de laatste wijzigingen naar GitHub.
+2. Ga naar [vercel.com/new](https://vercel.com/new) en meld je aan met GitHub.
+3. Geef Vercel toestemming om de GitHub-repository te gebruiken.
+4. Kies bij **Import Git Repository** de repository van dit project en klik op **Import**.
+5. Vercel herkent Next.js automatisch. Laat de standaardinstellingen staan en klik op **Deploy**.
+6. Na de build toont Vercel de URL van je website. Die eindigt meestal op `.vercel.app`.
+
+Je projecten en deployments staan op [vercel.com/dashboard](https://vercel.com/dashboard). Na de eerste koppeling maakt iedere push naar GitHub automatisch een nieuwe deployment. De productie-URL blijft hetzelfde; tijdelijke deployments kunnen ook een eigen preview-URL krijgen.
